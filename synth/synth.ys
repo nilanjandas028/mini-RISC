@@ -1,0 +1,29 @@
+# synth.ys - Save this inside /mini_risc/yosys/
+
+# 1. Read the Design (Note the "../" path!)
+read_verilog ../rtl/seq_multiplier.v
+read_verilog ../rtl/mini_risc.v
+
+# 2. Check Hierarchy
+hierarchy -check
+hierarchy -top mini_risc
+
+# 3. High-Level Synthesis
+proc; opt; clean
+fsm; opt; clean
+memory; opt; clean
+
+# 4. Map to Technology
+techmap; opt; clean
+dfflibmap -liberty stdcells.lib
+abc -liberty stdcells.lib
+
+# 5. Clean up
+splitnets -ports; opt; clean
+
+# 6. Write Outputs (These will generate inside the yosys folder)
+write_verilog synth.v
+write_spice synth.sp
+
+# 7. Print Statistics
+stat -liberty stdcells.lib

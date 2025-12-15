@@ -1,0 +1,18 @@
+read_liberty stdcells.lib 
+
+read_verilog synth.v 
+
+link_design mini_risc
+
+create_clock -name clk -period 10 {clk}
+
+set_power_activity -input -activity 0.1
+
+set_power_activity -global -activity 0.02
+
+report_checks
+report_timing -max_paths 10
+
+report_timing -max_paths 10
+
+report_power
