@@ -25,8 +25,8 @@ for understanding instruction execution, datapath design, and control logic.
 
 mini-RISC/
 ├── rtl/ # Verilog RTL source files
-├── tb/ # Testbench files
-├── sim/ # Simulation outputs (VCD, logs)
+├── sim/ # Testbench files
+├── report/ # Simulation outputs (VCD, logs)
 ├── synth/ # Synthesis scripts and reports
 ├── docs/ # Architecture diagrams and documentation
 └── README.md
