@@ -42,7 +42,7 @@ mini-RISC/
 
 ### Simulation Example
 ```bash
-iverilog -o mini_risc rtl/*.v tb/*.v
+iverilog -o mini_risc rtl/*.v sim/*.v
 vvp mini_risc
 gtkwave mini_risc.vcd
 
